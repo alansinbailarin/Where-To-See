@@ -37,7 +37,7 @@
           </div>
         </div>
         <div
-          class="absolute bottom-0 z-10 left-0 w-full h-full bg-gradient-to-t from-gray-950"
+          class="absolute bottom-0 z-10 left-0 w-full h-full bg-gradient-to-t from-black to-transparent"
         ></div>
       </div>
     </swiper-slide>
