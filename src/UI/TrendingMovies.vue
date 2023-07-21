@@ -1,5 +1,7 @@
 <template>
+  <div v-if="skeleton">Cargando...</div>
   <swiper
+    v-else
     :spaceBetween="30"
     :centeredSlides="true"
     :autoplay="{
@@ -17,23 +19,29 @@
       <div class="relative">
         <img
           :src="`https://image.tmdb.org/t/p/original${movie.backdrop_path}`"
-          alt=""
-          class="w-full h-56 md:h-[35rem] object-cover"
+          :alt="`${movie.title}`"
+          class="w-full h-56 md:h-[40rem] object-cover"
         />
         <div
-          class="absolute z-20 inset-0 grid md:grid-cols-3 items-center mx-7 md:mx-20 text-white"
+          class="absolute z-20 inset-0 grid md:grid-cols-2 items-center mx-7 md:mx-20 text-white"
         >
-          <div class="col-span-2">
+          <div>
             <RouterLink
               class="hover:text-gray-300"
               :to="{ name: 'movie-detail', params: { id: movie.id } }"
               ><p class="uppercase text-sm md:text-4xl font-bold text-gray-100">
                 {{ movie.title }}
               </p>
-              <p class="hidden md:block mt-2 text-xs md:text-lg text-gray-300">
-                {{ movie.overview }}
-              </p>
             </RouterLink>
+            <TrendingGenre class="my-4" :id="movie.id" />
+            <p class="text-gray-300 text-sm">{{ movie.overview }}</p>
+          </div>
+          <div>
+            <img
+              :src="`https://image.tmdb.org/t/p/original${movie.poster_path}`"
+              :alt="`${movie.title}`"
+              class="w-80 mx-auto rounded-lg shadow-2xl object-cover"
+            />
           </div>
         </div>
         <div
@@ -53,12 +61,20 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 import MovieService from "../services/MovieService";
+import TrendingGenre from "../components/trending/TrendingGenre.vue";
 import { onMounted, watch, ref } from "vue";
 
 const trendingMovies = ref(null);
 const skeleton = ref(true);
 const totalMovies = ref(0);
 const totalPages = ref(0);
+
+defineProps({
+  movie: {
+    type: Object,
+    required: true,
+  },
+});
 
 onMounted(() => {
   watch(() => {
