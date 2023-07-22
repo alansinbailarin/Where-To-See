@@ -20,26 +20,33 @@
         <img
           :src="`https://image.tmdb.org/t/p/original${movie.backdrop_path}`"
           :alt="`${movie.title}`"
-          class="w-full h-56 md:h-[40rem] object-cover hidden md:block"
-        />
-        <img
-          :src="`https://image.tmdb.org/t/p/original${movie.poster_path}`"
-          :alt="`${movie.title}`"
-          class="w-full h-[40rem] object-cover block md:hidden"
+          class="w-full h-[38rem] md:h-[50rem] object-cover shadow-2xl"
         />
 
         <div
-          class="absolute z-30 inset-0 md:hidden flex items-end justify-center mb-12"
+          class="absolute z-30 inset-0 md:hidden grid grid-cols-2 items-center"
         >
-          <RouterLink
-            class="text-white bg-gray-600 shadow-xl uppercase px-4 py-2 rounded-md hover:bg-gray-500 font-semibold text-xs"
-            :to="{ name: 'movie-detail', params: { id: movie.id } }"
-            >preview</RouterLink
-          >
+          <div>
+            <img
+              :src="`https://image.tmdb.org/t/p/original${movie.poster_path}`"
+              :alt="`${movie.title}`"
+              class="w-36 mx-auto rounded-lg shadow-2xl object-cover md:hidden"
+            />
+          </div>
+          <div>
+            <RouterLink
+              class="hover:text-gray-300"
+              :to="{ name: 'movie-detail', params: { id: movie.id } }"
+              ><p class="uppercase md:text-4xl font-bold text-gray-100">
+                {{ movie.title }}
+              </p>
+            </RouterLink>
+            <TrendingGenre class="" :id="movie.id" />
+          </div>
         </div>
 
         <div
-          class="absolute z-20 inset-0 grid md:grid-cols-2 items-center mx-7 md:mx-20 text-white"
+          class="absolute z-20 inset-0 grid md:grid-cols-2 items-center 3 md:mx-20 text-white"
         >
           <div>
             <RouterLink
