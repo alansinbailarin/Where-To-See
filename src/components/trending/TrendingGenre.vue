@@ -1,12 +1,14 @@
 <template>
-  <div v-if="skeleton">Cargando...</div>
+  <div v-if="skeleton" class="text-white">Cargando...</div>
   <div v-else>
     <div v-if="movie.tagline">
-      <p class="text-gray-300 mb-2 text-xs font-thin md:hidden">
+      <h1 class="text-gray-300 mb-2 mt-2 text-xs font-thin md:hidden">
         {{ movie.tagline }}
-      </p>
+      </h1>
     </div>
-    <div class="text-gray-300 items-center text-xs flex gap-1 my-2 flex-wrap">
+    <div
+      class="text-gray-300 items-center text-xs md:text-sm md:mb-5 flex gap-1 my-2 flex-wrap"
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="13"
