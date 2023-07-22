@@ -20,27 +20,47 @@
         <img
           :src="`https://image.tmdb.org/t/p/original${movie.backdrop_path}`"
           :alt="`${movie.title}`"
-          class="w-full h-56 md:h-[40rem] object-cover"
+          class="w-full h-56 md:h-[40rem] object-cover hidden md:block"
         />
+        <img
+          :src="`https://image.tmdb.org/t/p/original${movie.poster_path}`"
+          :alt="`${movie.title}`"
+          class="w-full h-[40rem] object-cover block md:hidden"
+        />
+
+        <div
+          class="absolute z-30 inset-0 md:hidden flex items-end justify-center mb-12"
+        >
+          <RouterLink
+            class="text-white bg-gray-600 shadow-xl uppercase px-4 py-2 rounded-md hover:bg-gray-500 font-semibold text-xs"
+            :to="{ name: 'movie-detail', params: { id: movie.id } }"
+            >preview</RouterLink
+          >
+        </div>
+
         <div
           class="absolute z-20 inset-0 grid md:grid-cols-2 items-center mx-7 md:mx-20 text-white"
         >
           <div>
             <RouterLink
-              class="hover:text-gray-300"
+              class="hover:text-gray-300 hidden md:block"
               :to="{ name: 'movie-detail', params: { id: movie.id } }"
-              ><p class="uppercase text-sm md:text-4xl font-bold text-gray-100">
+              ><p
+                class="uppercase hidden md:block text-sm md:text-4xl font-bold text-gray-100"
+              >
                 {{ movie.title }}
               </p>
             </RouterLink>
-            <TrendingGenre class="my-4" :id="movie.id" />
-            <p class="text-gray-200 text-sm">{{ movie.overview }}</p>
+            <TrendingGenre class="my-4 hidden md:block" :id="movie.id" />
+            <p class="text-gray-200 text-sm hidden md:block">
+              {{ movie.overview }}
+            </p>
           </div>
           <div>
             <img
               :src="`https://image.tmdb.org/t/p/original${movie.poster_path}`"
               :alt="`${movie.title}`"
-              class="w-80 mx-auto rounded-lg shadow-2xl object-cover"
+              class="w-80 mx-auto rounded-lg shadow-2xl object-cover hidden md:block"
             />
           </div>
         </div>
