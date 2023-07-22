@@ -34,7 +34,7 @@
               </p>
             </RouterLink>
             <TrendingGenre class="my-4" :id="movie.id" />
-            <p class="text-gray-300 text-sm">{{ movie.overview }}</p>
+            <p class="text-gray-200 text-sm">{{ movie.overview }}</p>
           </div>
           <div>
             <img
