@@ -6,6 +6,6 @@ import TrendingMovies from "../UI/TrendingMovies.vue";
 <template>
   <div class="">
     <TrendingMovies class="mb-5" />
-    <TopRatedMovies />
+    <TopRatedMovies class="mb-5" />
   </div>
 </template>

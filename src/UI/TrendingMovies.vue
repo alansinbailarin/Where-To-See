@@ -29,12 +29,10 @@
     :spaceBetween="30"
     :centeredSlides="true"
     :autoplay="{
-      delay: 10000,
+      delay: 6000,
       disableOnInteraction: false,
     }"
-    :pagination="{
-      dynamicBullets: true,
-    }"
+    :pagination="false"
     :navigation="false"
     :modules="modules"
     class="mySwiper"
@@ -54,7 +52,7 @@
             <img
               :src="`https://image.tmdb.org/t/p/original${movie.poster_path}`"
               :alt="`${movie.title}`"
-              class="w-36 mx-auto rounded-lg shadow-2xl object-cover md:hidden"
+              class="w-36 mx-auto rounded-sm shadow-2xl object-cover md:hidden"
             />
           </div>
           <div>
@@ -92,7 +90,7 @@
             <img
               :src="`https://image.tmdb.org/t/p/original${movie.poster_path}`"
               :alt="`${movie.title}`"
-              class="w-80 mx-auto rounded-lg shadow-2xl object-cover hidden md:block"
+              class="w-80 mx-auto rounded-sm shadow-2xl object-cover hidden md:block"
             />
           </div>
         </div>
@@ -121,8 +119,6 @@ const trendingMovies = ref(null);
 const skeleton = ref(true);
 const totalMovies = ref(0);
 const totalPages = ref(0);
-
-const watchProviders = ref(null);
 
 defineProps({
   movie: {

@@ -5,6 +5,7 @@
       :alt="movie.title"
       class="rounded-lg shadow-lg object-cover"
     />
+    <h1 class="text-gray-200 font-semibold text-xs mt-2">{{ movie.title }}</h1>
   </RouterLink>
 </template>
 
