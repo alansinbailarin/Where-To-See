@@ -3,7 +3,7 @@
     <img
       :src="`https://image.tmdb.org/t/p/w500${movie.poster_path}`"
       :alt="movie.title"
-      class="rounded-lg shadow-lg object-cover"
+      class="rounded-sm shadow-lg object-cover"
     />
     <h1 class="text-gray-200 font-semibold text-xs mt-2">{{ movie.title }}</h1>
   </RouterLink>
