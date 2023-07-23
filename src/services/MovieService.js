@@ -26,4 +26,8 @@ export default {
   getTrendingMovies() {
     return apiClient.get(`/trending/movie/day?language=${lang}`);
   },
+
+  getWatchProviders(id) {
+    return apiClient.get(`/movie/${id}/watch/providers?language=${lang}`);
+  },
 };

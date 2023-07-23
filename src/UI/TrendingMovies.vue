@@ -65,7 +65,7 @@
                 {{ movie.title }}
               </h1>
             </RouterLink>
-            <TrendingGenre class="" :id="movie.id" />
+            <TrendingGenre :id="movie.id" />
           </div>
         </div>
 
@@ -73,6 +73,7 @@
           class="absolute z-20 inset-0 grid md:grid-cols-2 items-center 3 md:mx-20 text-white"
         >
           <div>
+            <MovieProviders />
             <RouterLink
               class="hover:text-gray-300 hidden md:block"
               :to="{ name: 'movie-detail', params: { id: movie.id } }"
@@ -113,6 +114,7 @@ import "swiper/css/navigation";
 
 import MovieService from "../services/MovieService";
 import TrendingGenre from "../components/trending/TrendingGenre.vue";
+import MovieProviders from "./MovieProviders.vue";
 import { onMounted, watch, ref } from "vue";
 
 const trendingMovies = ref(null);
@@ -120,9 +122,15 @@ const skeleton = ref(true);
 const totalMovies = ref(0);
 const totalPages = ref(0);
 
+const watchProviders = ref(null);
+
 defineProps({
   movie: {
     type: Object,
+    required: true,
+  },
+  providers: {
+    type: Array,
     required: true,
   },
 });

@@ -56,7 +56,7 @@ const roundedCalification = computed(() => {
 });
 
 const voteCount = computed(() => {
-  const formatter = new Intl.NumberFormat(); // Especifica el idioma ('es' para español) u otro según necesites
+  const formatter = new Intl.NumberFormat();
   const voted = formatter.format(movie.value.vote_count);
   return voted;
 });
