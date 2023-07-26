@@ -112,7 +112,6 @@ import "swiper/css/navigation";
 
 import MovieService from "../services/MovieService";
 import TrendingGenre from "../components/trending/TrendingGenre.vue";
-import MovieProviders from "./MovieProviders.vue";
 import { onMounted, watch, ref } from "vue";
 
 const trendingMovies = ref(null);
@@ -123,10 +122,6 @@ const totalPages = ref(0);
 defineProps({
   movie: {
     type: Object,
-    required: true,
-  },
-  providers: {
-    type: Array,
     required: true,
   },
 });

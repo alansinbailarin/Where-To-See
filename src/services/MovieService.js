@@ -16,7 +16,9 @@ const apiClient = axios.create({
 
 export default {
   getTopRatedMovies(page) {
-    return apiClient.get(`/movie/top_rated?language=${lang}&page=${page}`);
+    return apiClient.get(
+      `/movie/top_rated?language=${lang}&page=${page}&with_watch_providers=8`
+    );
   },
 
   getSpecificMovie(id) {
